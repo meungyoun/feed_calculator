@@ -1,0 +1,157 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard', sans-serif;
+  background-color: #9CAF88; /* 전체 말차 배경 */
+  color: #333;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  margin: 40px auto;
+  background: #F9F9F6;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #7A8450;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #7A8450;
+}
+
+.title-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+h2 {
+  font-size: 20px;
+  color: #A5AA70;
+  margin-top: 40px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+/* 기존 카드 스타일 유지한 상태에서 체크박스 커스터마이징 */
+.product-item {
+  background-color: #f3f4e9;
+  padding: 15px 20px;
+  border-radius: 10px;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  margin: 8px;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+/* 체크됐을 때 카드 색상 변경 */
+.product-item input[type="checkbox"]:checked + span {
+  font-weight: bold;
+}
+
+/* 체크박스 + 텍스트 커스터마이징 */
+.product-item label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.product-item input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #7A8450;
+  border-radius: 4px;
+  margin-right: 12px;
+  position: relative;
+  top: 0;
+  background-color: white;
+  transition: background-color 0.2s ease;
+}
+
+.product-item input[type="checkbox"]:checked {
+  background-color: #7A8450;
+}
+
+.product-item input[type="checkbox"]::after {
+  content: "✔";
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  font-size: 12px;
+  color: white;
+  display: none;
+}
+
+.product-item input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+
+button#generate {
+  width: 100%;
+  padding: 16px;
+  background-color: #7A8450;
+  color: white;
+  font-size: 17px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button#generate:hover {
+  background-color: #A5AA70;
+}
+
+#result-box {
+  background: #f2f4ea;
+  padding: 20px;
+  border-radius: 12px;
+  line-height: 1.6;
+}
