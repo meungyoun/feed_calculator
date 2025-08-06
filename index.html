@@ -9,9 +9,9 @@
 <body>
   <div class="container">
     <h1 class="title">
-    <img src="icon/cs.png" alt="춘식이 아이콘" class="title-icon" />
-    춘식이 급여량 계산기
-  </h1>
+      <img src="icon/cs.png" alt="춘식이 아이콘" class="title-icon" />
+      춘식이 급여량 계산기
+    </h1>
 
     <div class="section">
       <label for="weight">몸무게 (kg)</label>
@@ -39,7 +39,7 @@
     <div class="section">
       <label>화식/토퍼 선택 (선택한 제품만 조합에 포함)</label>
       <div id="product-list">
-        <!-- 화식/토퍼 제품 목록 체크박스로 생성 -->
+        <!-- JS에서 동적으로 제품 목록 생성됨 -->
       </div>
     </div>
 
@@ -50,7 +50,9 @@
     <div class="section">
       <h2>📌 결과</h2>
       <div id="result-box">
-        <!-- 결과 출력 영역 -->
+        <!-- JS로 식단 결과 출력 -->
+        <!-- 조합별 화식, 사료량, kcal, 각 영양소 수치 -->
+        <!-- NEW: 사료 포함 단백질/지방/수분 총합 출력도 여기 추가 -->
       </div>
     </div>
   </div>
