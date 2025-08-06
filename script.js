@@ -124,16 +124,34 @@ document.getElementById("generate").addEventListener("click", () => {
   resultBox.innerHTML = `<p><strong>선택하신 비율과 제품을 기반으로 이런 식단을 짜줄 수 있어요!</strong></p>`;
 
   shuffled.forEach((r, i) => {
+    // 🌟 사료 성분 계산 (포메라니안 어덜트 기준)
+    const kibbleProtein = kibbleGram * 0.24;
+    const kibbleFat = kibbleGram * 0.14;
+    const kibbleMoisture = kibbleGram * 0.105;
+
+    // 🌟 전체 총합 계산
+    const totalProtein = r.totalProtein + kibbleProtein;
+    const totalFat = r.totalFat + kibbleFat;
+    const totalMoisture = r.totalMoisture + kibbleMoisture;
+    const totalKcal = r.totalKcal + rawKibbleKcal;
+
     let out = `<div style="margin-bottom: 20px;"><strong>🥣 조합 ${i + 1}</strong><ul>`;
     r.detail.forEach(p => {
       out += `<li>${p.name}: ${p.gram}g (${p.kcal.toFixed(1)} kcal)</li>`;
     });
+
     out += `</ul>
       사료 급여량: <strong>${kibbleGram.toFixed(1)}g</strong><br>
-      🔢 총 kcal: ${r.totalKcal.toFixed(1)} kcal<br>
-      💪 단백질: ${r.totalProtein.toFixed(1)}g / 🧈 지방: ${r.totalFat.toFixed(1)}g<br>
-      💧 수분: ${r.totalMoisture.toFixed(1)}g
+      🔢 총 kcal: ${totalKcal.toFixed(1)} kcal<br>
+      💪 단백질: ${r.totalProtein.toFixed(1)}g (화식) + ${kibbleProtein.toFixed(1)}g (사료)<br>
+      🧈 지방: ${r.totalFat.toFixed(1)}g (화식) + ${kibbleFat.toFixed(1)}g (사료)<br>
+      💧 수분: ${r.totalMoisture.toFixed(1)}g (화식) + ${kibbleMoisture.toFixed(1)}g (사료)<br><br>
+      📊 <strong>총 영양소:</strong><br>
+      💪 단백질: <strong>${totalProtein.toFixed(1)}g</strong><br>
+      🧈 지방: <strong>${totalFat.toFixed(1)}g</strong><br>
+      💧 수분: <strong>${totalMoisture.toFixed(1)}g</strong>
     </div>`;
+
     resultBox.innerHTML += out;
   });
 });
